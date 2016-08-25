@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="jQuery/ui-lightness/jquery-ui-1.10.4.css" rel="stylesheet" />
+    <script src="jQuery/jQuery.js"></script>
+    <script src="jQuery/jquery-ui-1.10.4.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link href="Scripts/Main.css" rel="stylesheet">
+    <!--<script src="Scripts/3dViewer.js"></script>-->
+
+
+    <script src="Three/three.min.js"></script>
+    <script src="Three/OrbitControls.js"></script>
+    <script src="Three/OBJLoader.js"></script>
+
+    <script>
+        var scene, camera, renderer;
+        var currentMesh;
+        var currentMeshNum = 0;
+
+
+        var loader = new THREE.OBJLoader();
+        var texLoader = new THREE.TextureLoader();
+
+        //count from 0 to 6 to change the file name
+        function changeMesh(){
+            currentMeshNum++;
+            if(currentMeshNum >6){
+                currentMeshNum = 0;
+            }
+            loadMesh();
+        }
+
+        //change the mesh in the scene
+        function loadMesh(){
+            loader.load( 'mesh/s' + currentMeshNum +'.obj', function(mesh){
+                if (currentMesh) {
+                    scene.remove(currentMesh);
+                }
+                currentMesh = mesh;
+                texLoader.load('mesh/s' + currentMeshNum +'.png', function ( texture ) {
+                            mesh.traverse(function(child) {
+                                child.material = new THREE.MeshStandardMaterial({ emissiveMap: texture, color: 0xFFFFFF, emissive: 0xFFFFFF });
+                            });
+                            scene.add(mesh);
+                        }
+                );
+            });
+
+        }
+
+
+
+        // Sets up the scene.
+        function init() {
+            var container = document.getElementById('3dContainer');
+            scene = new THREE.Scene();
+
+            renderer = new THREE.WebGLRenderer({antialias:true, alpha: true});
+            var WIDTH = 344, HEIGHT = 400;
+            renderer.setSize(WIDTH, HEIGHT);
+            container.appendChild(renderer.domElement);
+            renderer.domElement.id = "context";
+
+            camera = new THREE.PerspectiveCamera(45, WIDTH / HEIGHT, 0.1, 20000);
+            camera.position.set(-52,-15,208);
+            scene.add(camera);
+
+            loadMesh();
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+        }
+
+
+        // Renders the scene and updates the render as needed.
+        function animate() {
+            requestAnimationFrame( animate );
+            renderer.render( scene, camera );
+            controls.update();
+        }
+    </script>
+</head>
+
+<body class="container" onload="init(); animate();">
+<div class="row">
+   <div class="col-lg-4 col-lg-offset-4">
+       <div class="panel">
+          <div class="panel-heading">3D viewer</div>
+          <div class="panel-body body-background" style="padding: 0;" id="3dContainer">
+
+          </div>
+       </div>
+   </div>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-lg-offset-4">
+        <input type="button" class="btn" value="next" onclick="changeMesh()">
+    </div>
+</div>
+</body>
+</html>

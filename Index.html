@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="jQuery/ui-lightness/jquery-ui-1.10.4.css" rel="stylesheet" />
+    <script src="jQuery/jQuery.js"></script>
+    <script src="jQuery/jquery-ui-1.10.4.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <link href="scripts/main.css" rel="stylesheet" />
+    <link href="scripts/range.css" rel="stylesheet" />
+
+    <script src="scripts/global.js"></script>
+    <script src="scripts/settingsMenu.js"></script>
+
+    <script src="Three/three.min.js"></script>
+    <script src="Three/OrbitControls.js"></script>
+    <script src="Three/OBJLoader.js"></script>
+    <script src="scripts/3dViewer.js"></script>
+</head>
+
+<body class="container" onload="getElements()">
+<div class="flex-container" style="justify-content: space-between">
+<div class="top-info3">customize your own viking shield</div>
+<div><input type="button" class="buy-btn" value="buy!"></div>
+</div>
+<hr class="br-line">
+<div class="flex-container">
+    <div id="three-container" class="flex-col-8" style='position: relative'>
+        <div style='position: absolute' class="top-info"><span id="topRowText">frame</span> unit</div>
+    </div>
+    <div class="flex-col-4 flex-container2" style='position: relative'>
+        <div style='position: absolute;' class="top-info2">step <span id="topRowText2">2</span>/4</div>
+        <div class="setting-menu" id="mainModelDiv">
+            <div class="settingstext">Model</div>
+            <div id="modelDiv" class="flex-container-warp">
+                <div class="model-icon"><img id="smIcon01" src="img/sm_none_01_A.png" class="sm-icon-img" onclick="changeModelValue(0)"></div>
+                <div class="model-icon"><img id="smIcon02" src="img/sm_frame_01_B.png" class="sm-icon-img" onclick="changeModelValue(1)"></div>
+                <div class="model-icon"><img id="smIcon03" src="img/sm_frame_02_A.png" class="sm-icon-img" onclick="changeModelValue(2)"></div>
+                <div class="model-icon"><img id="smIcon04" src="img/sm_frame_03_A.png" class="sm-icon-img" onclick="changeModelValue(3)"></div>
+            </div>
+        </div>
+        <div class="setting-menu" id="colorDiv">
+            <div class="settingstext">Color</div>
+            <div class="flex-container-warp">
+                <div id="color01" class="color-circle circle-border" style="background: #ffffff" onclick="changeColorValue(0)"> </div>
+                <div id="color02" class="color-circle" style="background: #a0a0a0" onclick="changeColorValue(1)"> </div>
+                <div id="color03" class="color-circle" style="background: #dbd746" onclick="changeColorValue(2)"> </div>
+                <div id="color04" class="color-circle" style="background: #7a5322" onclick="changeColorValue(3)"> </div>
+                <div id="color05" class="color-circle" style="background: #537a5e" onclick="changeColorValue(4)"> </div>
+                <div id="color06" class="color-circle" style="background: #7582b7" onclick="changeColorValue(5)"> </div>
+            </div>
+        </div>
+        <div id="rotationDiv" class="setting-menu">
+        </div>
+    </div>
+</div>
+
+<div class="bottom-icon-row flex-container">
+   <div class="base mm-icon">
+       <div><img id="mmIcon01" src="img/mm_01_a.png" class="mm-icon-img" onclick="bottomMenu(0)"></div>
+       <div>Base</div>
+   </div>
+   <div class="frame mm-icon">
+       <div><img id="mmIcon02" src="img/mm_02_b.png" class="mm-icon-img" onclick="bottomMenu(1)"></div>
+       <div>Frame</div>
+   </div>
+   <div class="symbol mm-icon">
+       <div><img id="mmIcon03" src="img/mm_03_a.png" class="mm-icon-img" onclick="bottomMenu(2)"></div>
+       <div>Symbol</div>
+   </div>
+   <div class="Bolt mm-icon">
+       <div><img id="mmIcon04" src="img/mm_04_a.png" class="mm-icon-img" onclick="bottomMenu(3)"></div>
+       <div>Bolt</div>
+   </div>
+</div>
+</body>
+</html>

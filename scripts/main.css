@@ -1,0 +1,115 @@
+@font-face {
+    font-family: artifakt;
+    src: url(Artifakt-Element-Regular.otf);
+}
+@font-face {
+    font-family: artifakt-bold;
+    src: url(Artifakt-Element-Bold.otf);
+}
+body{
+    background-color: #f4f4f4;
+    margin-top: 35px;
+    font-family: artifakt;
+    text-transform: uppercase;
+}
+.flex-container{
+    display: flex;
+}
+.flex-container-warp{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.flex-container2{
+    display: flex;
+    flex-flow: column;
+}
+.flex-col-8{
+    flex-grow: 9;
+    /*background-color: #1c94c4;*/
+    height: 500px;
+    width: 780px;
+}
+.flex-col-4{
+    /*background-color: #74c3c4;*/
+    padding: 1px 50px 1px 50px;
+    /*padding: 50px;*/
+    font-size: 22px;
+    width: 500px;
+}
+.settingstext{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.bottom-icon-row{
+    height: 100px;
+}
+.mm-icon{
+    flex-grow: 1;
+    margin: auto 0;
+    text-align: center;
+}
+.mm-icon-img{
+    height: 50px;
+    cursor: pointer;
+}
+.sm-icon-img{
+    height: 50px;
+    cursor: pointer;
+}
+.model-icon{
+    /*flex-grow: 1;*/
+    font-size: 15px;
+    width: 80px;
+}
+.rotationRangeDiv{
+    flex-grow: 1;
+}
+.setting-menu{
+    flex-grow: 1;
+}
+.top-info{
+    font-size: 22px;
+    /*font-family: artifakt-bold;*/
+}
+.top-info3{
+    font-size: 30px;
+    font-family: artifakt-bold;
+}
+.top-info2{
+    font-size: 15px;
+    text-align: right;
+    width: 85%;
+}
+.color-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    margin: 5px;
+    cursor: pointer;
+}
+.color-circle:hover{
+    border: 2px solid #4e4e4e;
+}
+.circle-border{
+    border: 2px solid #4e4e4e;
+}
+.br-line{
+    border-top: 1px solid #2a2a2a;
+    /*margin: 0;*/
+    /*margin-bottom: 20px;*/
+}
+.buy-btn{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-family: artifakt-bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    border-radius: 2px;
+}
+.buy-btn:hover{
+    background-color: #45a14a;
+}
